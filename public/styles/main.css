@@ -1,0 +1,50 @@
+body {
+    font-family: sans-serif;
+    background-color: #f6f6f6;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  form {
+    margin-bottom: 30px;
+  }
+  
+  input, select, button {
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .drinks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .drink-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .drink-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .ingredients ul {
+    padding-left: 20px;
+  }
+  
+  .ingredients li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  

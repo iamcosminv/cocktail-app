@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cocktail Search</title>
+        <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Search a Cocktail🍹</h1>
+
+            <form action="/search" method="get">
+                <select name="type">
+                    <option value="name">Name</option>
+                    <option value="ingredient">Ingredient</option>
+                    <option value="first-letter">First Letter</option>
+                    <option value="random">Random</option>
+                    <option value="id">ID</option>
+                </select>
+                <input type="text" name="value" placeholder="gin" />
+                <button type="submit">Search</button>
+            </form>
+            <% if(drinks && drinks.length > 0) { %>
+                <h2>Results:</h2>
+                <div class="drinks">
+                    <% drinks.forEach(drink => { %>
+                        <div class="drink-card">
+                            <h3><%= drink.strDrink %></h3>
+                            <% if(drink.strDrinkThumb)  { %>
+                                <img src="<%= drink.strDrinkThumb %>/medium" alt="<%= drink.strDrink %>" />
+                            <% } %>
+                            <% if(drink.strIngredient1) { %>
+                                <div class="ingredients">
+                                    <h4>Ingredients</h4>
+                                    <ul>
+                                        <% for (let i = 1; i <= 15; i++) {
+                                            const ing = drink[`strIngredient${i}`];
+                                            if (ing) { %>
+                                                <li>
+                                                    <%= ing %>
+                                                    <img src="https://www.thecocktaildb.com/images/ingredients/<%= ing %>-small.png" alt="<%= ing %>" />
+                                                </li>
+                                                <% } } %>
+                                    </ul>
+                                </div>
+                                <% } %>
+
+                        </div>
+                        
+                    <% }); %>
+                </div>
+                <% } else if (drinks) { %>
+                   <p>Nu s-au gasit rezultate</p> 
+                <% } %>
+        </div>
+    </body>
+</html>
